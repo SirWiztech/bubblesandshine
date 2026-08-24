@@ -46,6 +46,7 @@
             background: var(--paper);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         h1,
         h2,
@@ -718,6 +719,7 @@
             align-items: center;
             gap: 14px;
             font-size: 1.02rem;
+            min-width: 0;
         }
         .contact-item i {
             width: 42px;
@@ -759,6 +761,23 @@
             color: var(--ink);
             position: relative;
             z-index: 1;
+            overflow: hidden;
+        }
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 24px 18px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 11px 12px;
+                font-size: 16px; /* prevents iOS zoom on focus */
+                min-width: 0; /* override any browser default min-width */
+            }
+            .contact-form h3 {
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+            }
         }
         .contact-form h3 {
             font-family: 'Space Grotesk', sans-serif;
@@ -832,6 +851,49 @@
             }
             .contact-container {
                 padding: 36px;
+                gap: 40px;
+            }
+        }
+        @media (max-width: 560px) {
+            .contact {
+                padding: 80px 0;
+            }
+            .contact-container {
+                padding: 24px 16px;
+                border-radius: 20px;
+                gap: 28px;
+                overflow: hidden;
+            }
+            .contact-info h2 {
+                font-size: 1.4rem;
+            }
+            .contact-info > p {
+                font-size: .92rem;
+                margin-bottom: 20px;
+            }
+            .contact-details {
+                gap: 12px;
+            }
+            .contact-item {
+                font-size: .9rem;
+                gap: 10px;
+            }
+            .contact-item i {
+                width: 34px;
+                height: 34px;
+                font-size: .85rem;
+            }
+            .contact-item a,
+            .contact-item span {
+                word-break: break-word;
+                min-width: 0;
+            }
+            .social-links {
+                margin-top: 20px;
+            }
+            .social-links a {
+                width: 38px;
+                height: 38px;
             }
         }
         @media (max-width: 768px) {
@@ -929,15 +991,15 @@
                         <span class="slider-tag after">After</span>
                         <div class="layer before">
                             <img
-                            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
-                            alt="Dirty car before detailing"
+                            src="/assets/_fetched/bubbles/photos/work-2.jpg"
+                            alt="Before detailing"
                             loading="lazy"
                             />
                         </div>
                         <div class="layer after-layer" id="heroAfter">
                             <img
-                            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
-                            alt="Clean car after detailing"
+                            src="/assets/_fetched/bubbles/photos/work-1.jpg"
+                            alt="After detailing — sparkling clean"
                             loading="lazy"
                             />
                         </div>
@@ -1114,7 +1176,7 @@
                             </select>
                         </div>
                         <div class="form-group"><label for="message">Message / Location</label><textarea id="message" name="message" placeholder="Tell us about your vehicle and preferred location..."></textarea></div>
-                        <button type="submit" class="btn btn-blue" style="width:100%;">Send Request</button>
+                        <button type="submit" class="btn btn-blue" style="width:100%; max-width:100%; box-sizing:border-box;">Send Request</button>
                     </form>
                 </div>
             </div>
@@ -1182,23 +1244,23 @@
         const workData = [{
             title: 'Exterior Detail',
             desc: 'Restoring showroom shine with premium wax and hand-wash technique.',
-            before: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-            after: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'
+            before: '/assets/_fetched/bubbles/photos/work-2.jpg',
+            after: '/assets/_fetched/bubbles/photos/work-1.jpg'
         }, {
             title: 'Interior Deep Clean',
             desc: 'Steam cleaning, vacuuming and leather conditioning for a fresh feel.',
-            before: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-            after: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+            before: '/assets/_fetched/bubbles/photos/work-4.jpg',
+            after: '/assets/_fetched/bubbles/photos/work-3.jpg'
         }, {
             title: 'Full Detail',
             desc: 'The complete inside-and-out transformation.',
-            before: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-            after: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+            before: '/assets/_fetched/bubbles/photos/work-6.jpg',
+            after: '/assets/_fetched/bubbles/photos/work-5.jpg'
         }, {
             title: 'Wheel & Trim Detail',
             desc: 'Deep cleaning and dressing for wheels, tires and exterior trim.',
-            before: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
-            after: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+            before: '/assets/_fetched/bubbles/photos/work-8.jpg',
+            after: '/assets/_fetched/bubbles/photos/work-7.jpg'
         }];
 
         const grid = document.getElementById('workGrid');
