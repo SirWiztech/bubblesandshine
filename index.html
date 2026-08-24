@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubbles & Shine Services | Mobile Car Wash in NJ, NY & MD</title>
+    <meta name="description" content="Community-focused mobile car wash offering professional interior and exterior vehicle cleaning in New Jersey, New York & Maryland. We come to you." />
+
+    <link rel="icon" type="image/jpeg" href="/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* ── reset & vars ── blue & white theme */
+        :root {
+            --ink: #0B1A33;
+            --marine: #0B2A4A;
+            --marine-2: #123B5E;
+            --blue: #2563EB;
+            --blue-dim: #1D4ED8;
+            --blue-light: #DBEAFE;
+            --blue-bg: #EFF6FF;
+            --coral: #2563EB;
+            --foam: #F0F7FF;
+            --paper: #F8FAFC;
+            --slate: #475569;
+            --line: rgba(11, 26, 51, 0.08);
+            --shadow: 0 20px 50px -20px rgba(11, 26, 51, 0.20);
+            --shadow-lg: 0 30px 70px -25px rgba(11, 26, 51, 0.30);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        .display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .eyebrow::before {
+            content: '';
+            width: 18px;
+            height: 2px;
+            background: var(--blue);
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: .98rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease, background .25s ease;
+        }
+        .btn-blue {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, .55);
+        }
+        .btn-blue:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 36px -10px rgba(37, 99, 235, .65);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .35);
+        }
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .1);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+        .btn-dark {
+            background: var(--marine);
+            color: #fff;
+        }
+        .btn-dark:hover {
+            background: var(--ink);
+            transform: translateY(-3px);
+        }
+
+        .section-head {
+            max-width: 640px;
+            margin-bottom: 56px;
+        }
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .section-head h2 {
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            font-weight: 600;
+            letter-spacing: -.02em;
+            line-height: 1.12;
+        }
+        .section-head p {
+            color: var(--slate);
+            font-size: 1.08rem;
+            margin-top: 14px;
+        }
+
+        /* ── header ── */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+        }
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 1px 0 var(--line);
+            padding: 12px 0;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--ink);
+        }
+        header:not(.scrolled) .logo {
+            color: #fff;
+        }
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: .95rem;
+            color: var(--ink);
+            position: relative;
+        }
+        header:not(.scrolled) .nav-links a:not(.nav-cta) {
+            color: rgba(255, 255, 255, .88);
+        }
+        .nav-links a:not(.nav-cta)::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 1.5px;
+            background: var(--blue);
+            transition: width .25s ease;
+        }
+        .nav-links a:not(.nav-cta):hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--blue);
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: inherit;
+        }
+        header:not(.scrolled) .mobile-menu-btn {
+            color: #fff;
+        }
+
+        /* ── hero ── */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(120% 140% at 15% 0%, #1A3A5C 0%, var(--marine) 45%, var(--ink) 100%);
+            padding: 168px 0 110px;
+            color: #fff;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .30), rgba(255, 255, 255, .04));
+            animation: float 14s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(12px);
+            }
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 56px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -.02em;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: #60A5FA;
+        }
+        .hero p {
+            font-size: 1.12rem;
+            color: rgba(255, 255, 255, .78);
+            max-width: 480px;
+            margin-bottom: 34px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 38px;
+        }
+        .hero-locations {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .hero-locations span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .65);
+            font-weight: 500;
+        }
+        .hero-locations i {
+            color: #60A5FA;
+        }
+
+        /* ── real-image before/after slider (hero + work share this) ── */
+        .slider-container {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            background: #0A1D2B;
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/3.1;
+            user-select: none;
+        }
+        .slider-container .layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-container .layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .slider-container .after-layer {
+            clip-path: inset(0 50% 0 0);
+            transition: clip-path .05s linear;
+        }
+        .slider-tag {
+            position: absolute;
+            top: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 100px;
+            background: rgba(0, 0, 0, .35);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .slider-tag.before {
+            left: 16px;
+        }
+        .slider-tag.after {
+            right: 16px;
+            background: rgba(37, 99, 235, .55);
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            transform: translateX(-1px);
+            cursor: ew-resize;
+            z-index: 5;
+        }
+        .slider-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, .15);
+        }
+        .slider-grip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+            font-size: .9rem;
+        }
+        .slider-caption {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, .55);
+            font-size: .85rem;
+            margin-top: 14px;
+            justify-content: center;
+        }
+
+        /* ── trust ── */
+        .trust {
+            background: var(--foam);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .trust-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--marine);
+        }
+        .trust-item i {
+            color: var(--blue);
+            font-size: 1.05rem;
+        }
+
+        /* ── about ── */
+        .about {
+            padding: 120px 0;
+            background: var(--paper);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .about-text p {
+            color: var(--slate);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 20px;
+            border-radius: 16px;
+            transition: background .25s ease;
+        }
+        .feature-item:hover {
+            background: var(--blue-bg);
+        }
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dim));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.05rem;
+        }
+        .feature-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .feature-item p {
+            font-size: .88rem;
+            color: var(--slate);
+        }
+
+        /* ── services ── */
+        .services {
+            padding: 120px 0;
+            background: var(--marine);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, .18), transparent 70%);
+        }
+        .services .section-head h2 {
+            color: #fff;
+        }
+        .services .section-head p {
+            color: rgba(255, 255, 255, .65);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 20px;
+            padding: 34px 26px;
+            transition: all .35s cubic-bezier(.2, .8, .2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .12) 50%, transparent 60%);
+            transform: translateX(-120%);
+            transition: transform .7s ease;
+        }
+        .service-card:hover::after {
+            transform: translateX(120%);
+        }
+        .service-card:hover {
+            background: rgba(255, 255, 255, .08);
+            border-color: rgba(37, 99, 235, .5);
+            transform: translateY(-8px);
+        }
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dim));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.12rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .service-card p {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .62);
+        }
+        .services-cta {
+            text-align: center;
+            margin-top: 52px;
+            position: relative;
+            z-index: 1;
+        }
+        .services-cta p {
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 18px;
+        }
+
+        /* ── work gallery (now uses same slider as hero) ── */
+        .work {
+            padding: 120px 0;
+            background: var(--paper);
+        }
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .work-item {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+        .work-item .slider-container {
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            aspect-ratio: 16/10;
+            border-bottom: 1px solid var(--line);
+        }
+        .work-item .slider-container .slider-tag {
+            background: rgba(11, 26, 51, .55);
+        }
+        .work-item .slider-container .slider-tag.after {
+            background: rgba(37, 99, 235, .55);
+        }
+        .work-info {
+            padding: 22px 24px;
+        }
+        .work-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .work-info p {
+            color: var(--slate);
+            font-size: .9rem;
+        }
+
+        /* ── reviews ── */
+        .reviews {
+            padding: 120px 0;
+            background: var(--foam);
+        }
+        .rating-summary {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+        .stars {
+            color: #F59E0B;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .rating-summary p {
+            color: var(--slate);
+            font-weight: 600;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .review-card {
+            background: #fff;
+            padding: 28px 24px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+        .review-stars {
+            color: #F59E0B;
+            margin-bottom: 14px;
+            font-size: .85rem;
+        }
+        .review-text {
+            font-size: .92rem;
+            color: var(--ink);
+            margin-bottom: 18px;
+        }
+        .reviewer {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--slate);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .reviewer i {
+            color: #1877F2;
+        }
+
+        /* ── contact ── */
+        .contact {
+            padding: 120px 0;
+            background: var(--paper);
+        }
+        .contact-container {
+            background: linear-gradient(135deg, var(--marine), #0B2A4A);
+            border-radius: 28px;
+            padding: 60px;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(37, 99, 235, .2), transparent 70%);
+        }
+        .contact-info {
+            position: relative;
+            z-index: 1;
+        }
+        .contact-info h2 {
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .contact-info>p {
+            color: rgba(255, 255, 255, .7);
+            margin-bottom: 32px;
+            font-size: 1.02rem;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.02rem;
+        }
+        .contact-item i {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item a {
+            color: #fff;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: .25s;
+        }
+        .social-links a:hover {
+            background: var(--blue);
+            transform: translateY(-3px);
+        }
+        .contact-form {
+            background: #fff;
+            border-radius: 18px;
+            padding: 32px;
+            color: var(--ink);
+            position: relative;
+            z-index: 1;
+        }
+        .contact-form h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--marine);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--line);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: .95rem;
+            transition: border-color .2s;
+            background: var(--paper);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* ── footer ── */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, .6);
+            padding: 40px 0;
+            text-align: center;
+            font-size: .88rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 26px;
+            margin-top: 14px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, .6);
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 968px) {
+            .hero-grid,
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .services-grid,
+            .work-grid,
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-container {
+                padding: 36px;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: var(--shadow);
+                display: none;
+                gap: 18px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                color: var(--ink) !important;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero {
+                padding: 130px 0 70px;
+            }
+            .features-grid,
+            .services-grid,
+            .work-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="siteHeader">
+        <div class="container">
+            <nav>
+                <a href="#top" class="logo">
+                    <img class="logo-mark" src="/assets/_fetched/bubbles/logo.jpg?v=bubbles" alt="Bubbles & Shine Services" width="40" height="40">
+                    Bubbles &amp; Shine
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#work">Our Work</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="nav-cta"><i class="fa-solid fa-phone"></i> (973) 255-5427</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="top">
+        <div class="bubble" style="width:120px;height:120px;top:12%;left:6%;"></div>
+        <div class="bubble" style="width:60px;height:60px;top:60%;left:14%;animation-delay:2s;"></div>
+        <div class="bubble" style="width:90px;height:90px;top:20%;right:8%;animation-delay:4s;"></div>
+        <div class="bubble" style="width:44px;height:44px;top:75%;right:20%;animation-delay:1s;"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="eyebrow" style="color:#60A5FA;">Mobile Detailing · NJ · NY · MD</span>
+                    <h1>We bring the <em>shine</em><br />straight to your driveway.</h1>
+                    <p>Bubbles &amp; Shine Services is a community-focused mobile car wash offering professional interior and exterior cleaning &mdash; built for busy people who still want their car spotless.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-blue">Get a Custom Quote</a>
+                        <a href="tel:+19732555427" class="btn btn-ghost"><i class="fa-solid fa-phone"></i> Call Now</a>
+                    </div>
+                    <div class="hero-locations">
+                        <span><i class="fa-solid fa-location-dot"></i> New Jersey</span>
+                        <span><i class="fa-solid fa-location-dot"></i> New York</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Maryland</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="slider-container" id="heroDemo">
+                        <span class="slider-tag before">Before</span>
+                        <span class="slider-tag after">After</span>
+                        <div class="layer before">
+                            <img
+                            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
+                            alt="Dirty car before detailing"
+                            loading="lazy"
+                            />
+                        </div>
+                        <div class="layer after-layer" id="heroAfter">
+                            <img
+                            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
+                            alt="Clean car after detailing"
+                            loading="lazy"
+                            />
+                        </div>
+                        <div class="slider-handle" id="heroHandle">
+                            <div class="slider-line"></div>
+                            <div class="slider-grip"><i class="fa-solid fa-arrows-left-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="slider-caption"><i class="fa-solid fa-hand-pointer"></i> Drag to see the difference</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TRUST ─── -->
+    <section class="trust">
+        <div class="container trust-row">
+            <div class="trust-item"><i class="fa-solid fa-car-side"></i> We come to you</div>
+            <div class="trust-item"><i class="fa-solid fa-spray-can-sparkles"></i> Professional-grade products</div>
+            <div class="trust-item"><i class="fa-solid fa-clock"></i> Flexible scheduling</div>
+            <div class="trust-item"><i class="fa-solid fa-star"></i> 4.0★ rated on Facebook</div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="eyebrow">Why Bubbles &amp; Shine</span>
+                <h3 style="font-size:2.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:18px;">Friendly, reliable service you can actually trust.</h3>
+                <p>We don't cut corners. Every vehicle gets the same attention to detail, every single time &mdash; from a quick exterior refresh to a full interior and exterior detail.</p>
+                <p>We build relationships with our clients, not just clean cars. The difference is in the details.</p>
+                <a href="#contact" class="btn btn-dark">Book Your Wash</a>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-car"></i></div>
+                    <div><h4>We Come to You</h4><p>Home, office, or anywhere in NJ, NY &amp; MD</p></div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+                    <div><h4>Professional Products</h4><p>Premium care for paint &amp; interior</p></div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <div><h4>Friendly &amp; Reliable</h4><p>Community-focused, trustworthy service</p></div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <div><h4>Flexible Scheduling</h4><p>On-demand and scheduled plans</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SERVICES ─── -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+                <span class="eyebrow" style="color:#60A5FA;justify-content:center;display:inline-flex;">What We Offer</span>
+                <h2>Services built around your vehicle</h2>
+                <p>No two vehicles are the same &mdash; every job is quoted to fit yours.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-truck-moving"></i></div>
+                    <h3>Fleet Truck Washes</h3>
+                    <p>Scheduled or on-demand fleet washing that keeps your business looking road-ready.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <h3>Exterior Cleaning</h3>
+                    <p>A thorough hand wash and wax that brings back that showroom shine.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
+                    <h3>Fresh Interior Detail</h3>
+                    <p>Vacuuming, steam cleaning, leather conditioning &amp; odor removal, crevice to crevice.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Full Detailing</h3>
+                    <p>The complete experience &mdash; every surface, inside and out.</p>
+                </div>
+            </div>
+            <div class="services-cta">
+                <p>Message or call for a custom quote &mdash; we'll match a package to your vehicle.</p>
+                <a href="tel:+19732555427" class="btn btn-blue"><i class="fa-solid fa-phone"></i> Call for a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WORK (now uses same slider as hero) ─── -->
+    <section class="work" id="work">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">See The Difference</span>
+                <h2>Drag each panel to reveal the shine</h2>
+                <p>Real results from real Bubbles &amp; Shine visits.</p>
+            </div>
+            <div class="work-grid" id="workGrid">
+                <!-- injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── REVIEWS ─── -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+                <span class="eyebrow" style="justify-content:center;display:inline-flex;">Testimonials</span>
+                <h2>Loved by our customers</h2>
+            </div>
+            <div class="rating-summary">
+                <div class="stars">★★★★☆</div>
+                <p>4.0 out of 5 &middot; based on 4 reviews</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Great service! They came right to my driveway and my car looked brand new inside and out. Really friendly and professional."</p>
+                    <div class="reviewer"><i class="fa-brands fa-facebook"></i> Happy Customer</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Convenient and thorough. Loved that they came to me &mdash; saved so much time. The interior cleaning was top notch."</p>
+                    <div class="reviewer"><i class="fa-brands fa-facebook"></i> Satisfied Client</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Reliable and trustworthy. My truck fleet has never looked better. The results speak for themselves."</p>
+                    <div class="reviewer"><i class="fa-brands fa-facebook"></i> Fleet Manager</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The difference is in the details. They really took their time and got every spot. Highly recommend."</p>
+                    <div class="reviewer"><i class="fa-brands fa-facebook"></i> Regular Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <span class="eyebrow" style="color:#60A5FA;">Get In Touch</span>
+                    <h2>Ready for a sparkling clean car?</h2>
+                    <p>Get in touch for a custom quote. We come to your location, on your schedule.</p>
+                    <div class="contact-details">
+                        <div class="contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+19732555427">+1 (973) 255-5427</a></div>
+                        <div class="contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:bubblesandshineservices@gmail.com">bubblesandshineservices@gmail.com</a></div>
+                        <div class="contact-item"><i class="fa-solid fa-map-location-dot"></i><span>New Jersey &middot; New York &middot; Maryland</span></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/BubblesandShineServices" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/bubblesandshineservices" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request a Quote</h3>
+                    <form action="mailto:bubblesandshineservices@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required placeholder="John Doe" /></div>
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" required placeholder="(973) 255-5427" /></div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option>Exterior Cleaning</option>
+                                <option>Interior Cleaning</option>
+                                <option>Full Detailing</option>
+                                <option>Fleet Truck Wash</option>
+                                <option>Other / Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label for="message">Message / Location</label><textarea id="message" name="message" placeholder="Tell us about your vehicle and preferred location..."></textarea></div>
+                        <button type="submit" class="btn btn-blue" style="width:100%;">Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bubbles &amp; Shine Services. All rights reserved.</p>
+            <p style="margin-top:6px;">Service areas: New Jersey &middot; New York &middot; Maryland</p>
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.facebook.com/BubblesandShineServices" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ── header scroll ──
+        const header = document.getElementById('siteHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        // ── mobile menu ──
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        // ── drag-reveal slider factory ──
+        function initSlider(container, afterLayer, handle) {
+            let dragging = false;
+            const setX = (clientX) => {
+                const rect = container.getBoundingClientRect();
+                let pct = ((clientX - rect.left) / rect.width) * 100;
+                pct = Math.max(0, Math.min(100, pct));
+                afterLayer.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+                if (handle) handle.style.left = pct + '%';
+            };
+            container.addEventListener('pointerdown', e => {
+                dragging = true;
+                setX(e.clientX);
+                container.setPointerCapture(e.pointerId);
+            });
+            container.addEventListener('pointermove', e => { if (dragging) setX(e.clientX); });
+            container.addEventListener('pointerup', () => dragging = false);
+            container.addEventListener('pointerleave', () => dragging = false);
+            // center initial
+            const rect = container.getBoundingClientRect();
+            setX(rect.left + rect.width / 2);
+        }
+
+        // ── hero slider ──
+        initSlider(
+            document.getElementById('heroDemo'),
+            document.getElementById('heroAfter'),
+            document.getElementById('heroHandle')
+        );
+
+        // ── work gallery ──
+        const workData = [{
+            title: 'Exterior Detail',
+            desc: 'Restoring showroom shine with premium wax and hand-wash technique.',
+            before: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
+            after: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'
+        }, {
+            title: 'Interior Deep Clean',
+            desc: 'Steam cleaning, vacuuming and leather conditioning for a fresh feel.',
+            before: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
+            after: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+        }, {
+            title: 'Full Detail',
+            desc: 'The complete inside-and-out transformation.',
+            before: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
+            after: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+        }, {
+            title: 'Wheel & Trim Detail',
+            desc: 'Deep cleaning and dressing for wheels, tires and exterior trim.',
+            before: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80',
+            after: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80&blur=100'
+        }];
+
+        const grid = document.getElementById('workGrid');
+        workData.forEach((item, i) => {
+            const el = document.createElement('div');
+            el.className = 'work-item';
+            el.innerHTML = `
+              <div class="slider-container" id="wc${i}">
+                <span class="slider-tag before">Before</span>
+                <span class="slider-tag after">After</span>
+                <div class="layer before">
+                  <img src="${item.before}" alt="${item.title} — before" loading="lazy" />
+                </div>
+                <div class="layer after-layer" id="wclean${i}">
+                  <img src="${item.after}" alt="${item.title} — after" loading="lazy" />
+                </div>
+                <div class="slider-handle" id="ws${i}">
+                  <div class="slider-line"></div>
+                  <div class="slider-grip"><i class="fa-solid fa-arrows-left-right"></i></div>
+                </div>
+              </div>
+              <div class="work-info"><h3>${item.title}</h3><p>${item.desc}</p></div>
+            `;
+            grid.appendChild(el);
+        });
+
+        // init each work slider
+        workData.forEach((_, i) => {
+            const container = document.getElementById('wc' + i);
+            const after = document.getElementById('wclean' + i);
+            const handle = document.getElementById('ws' + i);
+            if (container && after && handle) initSlider(container, after, handle);
+        });
+    </script>
+
+</body>
+</html>
