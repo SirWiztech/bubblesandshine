@@ -445,10 +445,48 @@
             gap: 70px;
             align-items: center;
         }
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .about-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: var(--shadow-lg);
+        }
         .about-text p {
             color: var(--slate);
             margin-bottom: 16px;
             font-size: 1.05rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 24px 0 28px;
+        }
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--marine);
+        }
+        .about-feature i {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--blue-bg);
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: .88rem;
         }
         .features-grid {
             display: grid;
@@ -855,6 +893,34 @@
             }
         }
         @media (max-width: 560px) {
+            .about {
+                padding: 80px 0;
+            }
+            .about-grid {
+                gap: 40px;
+                text-align: center;
+            }
+            .about-image img {
+                width: 180px;
+                height: 180px;
+                border-radius: 22px;
+            }
+            .about-text .eyebrow {
+                justify-content: center;
+            }
+            .about-text h3 {
+                font-size: 1.6rem !important;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .about-feature {
+                justify-content: center;
+            }
+            .about-text .btn {
+                width: 100%;
+            }
             .contact {
                 padding: 80px 0;
             }
@@ -1027,30 +1093,21 @@
     <!-- ─── ABOUT ─── -->
     <section class="about" id="about">
         <div class="container about-grid">
-            <div class="about-text">
-                <span class="eyebrow">Why Bubbles &amp; Shine</span>
-                <h3 style="font-size:2.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:18px;">Friendly, reliable service you can actually trust.</h3>
-                <p>We don't cut corners. Every vehicle gets the same attention to detail, every single time &mdash; from a quick exterior refresh to a full interior and exterior detail.</p>
-                <p>We build relationships with our clients, not just clean cars. The difference is in the details.</p>
-                <a href="#contact" class="btn btn-dark">Book Your Wash</a>
+            <div class="about-image">
+                <img src="/assets/_fetched/bubbles/logo.jpg" alt="Bubbles & Shine Services" />
             </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fa-solid fa-car"></i></div>
-                    <div><h4>We Come to You</h4><p>Home, office, or anywhere in NJ, NY &amp; MD</p></div>
+            <div class="about-text">
+                <span class="eyebrow">About Us</span>
+                <h3 style="font-size:2.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:18px;">We come to you.</h3>
+                <p>Bubbles &amp; Shine Services is a community-focused mobile car wash offering professional interior and exterior vehicle cleaning. Designed for busy individuals and families who value quality, care, and convenience.</p>
+                <p>The difference is in the details. &#128064;&#10024; We build relationships with our clients, not just clean cars. From a quick exterior refresh to a full interior and exterior detail &mdash; every vehicle gets the same attention to detail, every single time.</p>
+                <div class="about-features">
+                    <div class="about-feature"><i class="fa-solid fa-car"></i><span>We Come to You</span></div>
+                    <div class="about-feature"><i class="fa-solid fa-spray-can-sparkles"></i><span>Professional Products</span></div>
+                    <div class="about-feature"><i class="fa-solid fa-handshake"></i><span>Friendly &amp; Reliable</span></div>
+                    <div class="about-feature"><i class="fa-solid fa-calendar-check"></i><span>Flexible Scheduling</span></div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                    <div><h4>Professional Products</h4><p>Premium care for paint &amp; interior</p></div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <div><h4>Friendly &amp; Reliable</h4><p>Community-focused, trustworthy service</p></div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <div><h4>Flexible Scheduling</h4><p>On-demand and scheduled plans</p></div>
-                </div>
+                <a href="#contact" class="btn btn-dark">Book Your Wash</a>
             </div>
         </div>
     </section>
